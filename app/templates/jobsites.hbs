@@ -1,0 +1,38 @@
+<div class='container-fluid news-bar'>
+  {{#if session.isAuthenticated}}
+    {{#each model.user as |user|}}
+      <div class='news-bar-text'>
+        <p><i>Welcome, {{user.firstName}} {{user.lastName}}</i></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p><i>Today's Date: </i></p>
+        <i>{{welcome-name}}</i>
+      </div>
+    {{/each}}
+  {{/if}}
+</div>
+<div class='padding col-md-12' align='center' style='margin-top: 15px;'>
+  <h4>  Tower Jobs </h4>
+    <div style='width: 840px;'>
+      <table class='table table-bordered table-hover'>
+          <thead>
+            <tr>
+              <th>Job Name</th>
+              <th>Job No.</th>
+              <th>Address</th>
+              <th>Foreman</th>
+              <th>Project Manager</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each model.job as |job|}}
+              <tr>
+                  <td>{{job.jobName}}</td>
+                  <td>{{job.jobNumber}}</td>
+                  <td>{{job.streetAddress}} {{job.city}}, {{job.state}} {{job.zipCode}}</td>
+                  <td>{{job.foreman}}</td>
+                  <td>{{job.projectManager}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+      </table>
+    </div>
+</div>

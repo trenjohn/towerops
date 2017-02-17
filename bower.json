@@ -1,0 +1,7 @@
+{
+  "name": "towerops",
+  "dependencies": {
+    "firebase": "^3.0.0",
+    "bootstrap": "^3.3.7"
+  }
+}

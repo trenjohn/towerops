@@ -1,0 +1,35 @@
+<br>
+<table class='table table-bordered table-hover'>
+    <thead>
+      <tr>
+        <th>Foreman</th>
+        <th>Files <small><i>&nbsp;&nbsp;&nbsp;&nbsp;Uploaded Since: {{displayTime}}</i></small></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each filteredProfiles as |profile|}}
+        <tr>
+            <td style="width:175px">{{profile.firstName}} {{profile.lastName}}</td>
+            <td>
+              {{#each profile.files as |file|}}
+                  <a target="_blank" href='{{file.downloadURL}}'>{{file.fileName}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              {{/each}}
+            </td>
+        </tr>
+      {{/each}}
+  </tbody>
+</table>
+
+
+<!-- <a target="_blank" href='{{file.downloadURL}}'>{{file.fileName}}</a>
+<p>{{file.uid}}</p>
+<hr/> -->
+
+<!-- <i>Uploaded:  {{file.created}}</i> -->
+<!-- {{#each filteredProfiles as |profile|}}
+    <p>{{profile.firstName}} {{profile.lastName}}</p>
+    {{#each profile.files as |file|}}
+      <a target="_blank" href='{{file.downloadURL}}'>{{file.fileName}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    {{/each}}
+    <br>
+{{/each}} -->

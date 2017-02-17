@@ -1,0 +1,37 @@
+<div style='margin-top: 50px;'>
+  <div class='row'>
+    <div class='col-md-3 manpower-dates' align='center'>
+        <h4>{{weekOne}}</h4>
+        <h5><i>(Week 1)</i></h5>
+    </div>
+    <div class='col-md-9 manpower'>
+        {{textarea value=week1 cols="80" rows="6"}}
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-3 manpower-dates' align='center'>
+        <h4>{{weekTwo}}</h4>
+        <h5><i>(Week 2)</i></h5>
+    </div>
+    <div class='col-md-9 manpower'>
+        {{textarea value=week2 cols="80" rows="6"}}
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-3 manpower-dates' align='center'>
+        <h4>{{weekThree}}</h4>
+        <h5><i>(Week 3)</i></h5>
+    </div>
+    <div class='col-md-9 manpower'>
+        {{textarea value=week3 cols="80" rows="6"}}
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-12' align='center'>
+        <button class='btn btn-primary btn-md' {{action 'submitThreeWeek'}}>Submit 3 Week Look Ahead</button>
+    </div>
+    <!-- <div class='col-md-9 manpower'>
+
+    </div> -->
+  </div>
+</div>

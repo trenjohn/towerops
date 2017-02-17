@@ -1,0 +1,29 @@
+<div class='container-fluid news-bar'>
+  {{#if session.isAuthenticated}}
+    {{#each model as |user|}}
+      <div class='news-bar-text'>
+        <p><i>Welcome, {{user.firstName}} {{user.lastName}}</i></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p><i>Today's Date: </i></p>
+        <i>{{welcome-name}}</i>
+      </div>
+    {{/each}}
+  {{/if}}
+</div>
+<div class='padding sub-news-bar'>
+  {{outlet}}
+</div>
+<!-- <div>
+{{#if session.isAuthenticated}}
+{{/if}}
+
+
+  <div class='page-header padding'>
+      <h1>Welcome, you are signed in!</h1>
+  </div>
+  <div class='panel panel-default padding'>
+      <div class='panel-heading'>{{session.currentUser.email}}</div>
+      <div class='panel-body'>
+          <img src='{{session.currentUser.profileImageURL}}' />
+      </div>
+  </div>
+</div> -->

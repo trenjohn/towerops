@@ -1,0 +1,29 @@
+<div style='margin-top: 25px;'>
+  <div class='col-md-3'></div>
+  <div class='col-md-6' align='center'>
+  <h4>Create Profile</h4>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=uid placeholder="uid"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=firstName placeholder="First Name"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=lastName placeholder="Last Name"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=role placeholder="Role"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=title placeholder="Title"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=phone placeholder="Phone"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=email placeholder="Email"}}
+    </div>
+      <button class='btn btn-primary' {{action "createProfile"}}>Create Profile</button>
+  </div>
+  <div class='col-md-3'></div>
+</div>

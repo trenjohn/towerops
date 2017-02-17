@@ -1,0 +1,26 @@
+<table class='table table-bordered table-hover' style="margin-top: 20px;">
+    <thead>
+      <tr>
+        <th>Foreman</th>
+        <th>Week</th>
+        <th>Requested Manpower</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each filteredProfiles as |profile|}}
+        <tr>
+            <td style="width:175px">{{profile.firstName}} {{profile.lastName}}</td>
+            <td style="width:100px">
+                <tr>{{profile.week1Date}}</tr>
+                <tr>{{profile.week2Date}}</tr>
+                <tr>{{profile.week3Date}}</tr>
+            </td>
+            <td>
+               <tr>{{profile.week1Request}}</tr>
+               <tr>{{profile.week2Request}}</tr>
+               <tr>{{profile.week3Request}}</tr>
+            </td>
+        </tr>
+      {{/each}}
+  </tbody>
+</table>

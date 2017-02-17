@@ -1,0 +1,22 @@
+<div class='container-fluid news-bar news-bar-non'></div>
+<div>
+  <div class='col-md-3'></div>
+  <div class='col-md-6' align='center'>
+    <div class='page-header'>
+        <h3>Sign Up</h3>
+    </div>
+    <div class='sign-in'>
+        {{input type='text' class='form-control' value=email placeholder='email'}}
+        {{#each model.errors.email as |error|}}
+          <div class="error">
+            {{error.message}}
+          </div>
+        {{/each}}
+    </div>
+    <div class='sign-in'>
+        {{input type='text' class='form-control' value=password placeholder='password'}}
+    </div>
+    <button class='btn btn-primary' {{action 'signUp'}}>Sign Up</button>
+  </div>
+  <div class='col-md-3'></div>
+</div>

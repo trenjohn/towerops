@@ -1,0 +1,43 @@
+<div style='margin-top: 25px;'>
+  <div class='col-md-1' align='center'></div>
+  <div class='col-md-4' align='center'>
+    <h4>Select Profile To Edit</h4>
+    {{#x-select class='form-control' value="target.value" action="didMakeSelection" on="change" as |xs|}}
+      {{#each model as |profile|}}
+        {{#xs.option value=profile.uid}}{{profile.firstName}}  {{profile.lastName}}{{/xs.option}}
+      {{/each}}
+    {{/x-select}}
+    <div align='left' style='margin-top: 50px;'>
+      <p><b>First Name: </b>{{selectedProfile.firstName}}</p>
+      <p><b>Last Name: </b>{{selectedProfile.lastName}}</p>
+      <p><b>Access Role: </b>{{selectedProfile.role}}</p>
+      <p><b>Title: </b>{{selectedProfile.title}}</p>
+      <p><b>Phone: </b>{{selectedProfile.phone}}</p>
+      <p><b>Email: </b>{{selectedProfile.email}}</p>
+    </div>
+  </div>
+  <div class='col-md-1' align='center'></div>
+  <div class='col-md-6' align='center'>
+    <h4>Edit Profile</h4>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=firstName placeholder="First Name"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=lastName placeholder="Last Name"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=role placeholder="Role"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=title placeholder="Title"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=phone placeholder="Phone"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=email placeholder="Email"}}
+    </div>
+      <button class='btn btn-primary' {{action "editProfile"}}>Edit Profile</button>
+  </div>
+  <div class='col-md-1' align='center'></div>
+</div>

@@ -1,0 +1,20 @@
+<div align='center'>
+  <!-- {{#link-to 'dashboard.admin'}}
+      <h3>Admin Dashboard</h3>
+  {{/link-to}} -->
+  {{#link-to 'dashboard.admin.create-profile' class='dashboard-links'}}
+      Create Profile
+  {{/link-to}}
+  {{#link-to 'dashboard.admin.edit-profile' class='dashboard-links'}}
+      Edit Profile
+  {{/link-to}}
+  {{#link-to 'dashboard.admin.create-jobsite' class='dashboard-links'}}
+      Create Jobsite
+  {{/link-to}}
+  <!-- {{#link-to 'dashboard.foreman.weeklysubmissions'}}
+      Weekly Submissions
+  {{/link-to}} -->
+</div>
+<div>
+  {{outlet}}
+</div>

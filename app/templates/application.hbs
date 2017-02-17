@@ -1,0 +1,46 @@
+<div class='container-fluid header nav-container'>
+  <div class='col-md-4 logo'>
+    {{#if session.isAuthenticated}}
+      {{#link-to 'dashboard'}}
+          <img src="/assets/images/logo-main.png" alt="Tower Electric">
+      {{/link-to}}
+    {{else}}
+      {{#link-to 'index'}}
+        <img src="/assets/images/logo-main.png" alt="Tower Electric">
+      {{/link-to}}
+    {{/if}}
+  </div>
+  <div class='col-md-6'>
+      {{#if session.isAuthenticated}}
+          {{#link-to 'dashboard' class='navbar-text nav-link'}}
+              Home
+          {{/link-to}}
+          {{#link-to 'personnel' class='navbar-text nav-link'}}
+              Personnel
+          {{/link-to}}
+          {{#link-to 'jobsites' class='navbar-text nav-link'}}
+              Jobsites
+          {{/link-to}}
+      {{/if}}
+  </div>
+  <div class='col-md-2 sign-out'>
+      {{#if session.isAuthenticated}}
+          <button class='btn btn-primary navbar-btn' {{action 'signOut'}}>
+               Sign Out
+          </button>
+      {{/if}}
+  </div>
+</div>
+<!-- <div>
+  {{#unless session.isAuthenticated}}
+    <div class='container-fluid news-bar news-bar-non'></div>
+  {{/unless}}
+</div> -->
+<div class='container-fluid sub-header nopadding'>
+    {{outlet}}
+</div>
+<div class='container-fluid footer-bar'>
+  <div class='footer'>
+      <p>Copyright 2017<br>TOWER ELECTRIC<br>621 Southpark Drive, Suite 1500 Littleton, Colorado 80120</p>
+  </div>
+</div>

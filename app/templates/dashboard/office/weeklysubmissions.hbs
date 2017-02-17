@@ -1,0 +1,29 @@
+<div>
+  <div class='col-md-2' style='margin-top: 15px;'>
+    <h6><b>Select Week</b></h6>
+    {{#x-select value="target.value" action="didMakeSelection" on="change" as |xs|}}
+        {{#xs.option value=86400000}}Day{{/xs.option}}
+        {{#xs.option value=259200000}}3 Days{{/xs.option}}
+        {{#xs.option value=432000000}}5 Days{{/xs.option}}
+        {{#xs.option value=604800000}}Week{{/xs.option}}
+        {{#xs.option value=2592000000}}Month{{/xs.option}}
+    {{/x-select}}
+  </div>
+  <div class='col-md-10'>
+    {{list-submissions model=model selection=selection}}
+  </div>
+</div>
+
+<!-- <div>
+  <h3>Uploaded Weekly Submissions</h3>
+  {{#each model as |file|}}
+    <a target="_blank" href='{{file.downloadURL}}'>{{file.fileName}}</a>
+    <p>{{file.uid}}</p>
+    <hr/>
+  {{/each}}
+</div> -->
+
+<!-- {{#x-select action="selectWeek"}}
+  {{#x-option value='2/13' selected=true}}2/13{{/x-option}}
+  {{#x-option value='2/6'}}2/6{{/x-option}}
+{{/x-select}} -->

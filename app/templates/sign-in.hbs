@@ -1,0 +1,21 @@
+<div class='container-fluid news-bar news-bar-non'></div>
+<div>
+  <div class='col-md-3'></div>
+  <div class='col-md-6' align='center'>
+    <div class='page-header'>
+        <h3>Sign In</h3>
+    </div>
+    <div class='sign-in'>
+        {{input type='text' class='form-control' value=email placeholder='email'}}
+    </div>
+    <div class='sign-in'>
+        {{input type='password' class='form-control' value=password placeholder='password'}}
+    </div>
+    {{#if session.isWorking}}
+      <button class='btn btn-primary' disabled='disabled'>Signing in...</button>
+    {{else}}
+      <button class='btn btn-primary' {{action 'signIn' 'password'}}>Sign In</button>
+    {{/if}}
+  </div>
+  <div class='col-md-3'></div>
+</div>
