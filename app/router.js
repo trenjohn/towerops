@@ -16,10 +16,12 @@ Router.map(function() {
 
   this.authenticatedRoute('dashboard', function() {
     this.route('foreman', function() {
+      this.route('home');
       this.route('weekly-submissions');
       this.route('manpower');
     });
     this.authenticatedRoute('office', function() {
+      this.route('home');
       this.route('weeklysubmissions');
       this.route('manpower');
     });

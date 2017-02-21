@@ -17,13 +17,13 @@ export default Ember.Route.extend({
             switch (role)
               {
                case "office":
-                  this.transitionTo('/dashboard/office');
+                  this.transitionTo('/dashboard/office/home');
                   break;
                case "admin":
                   this.transitionTo('/dashboard/admin');
                   break;
                case "foreman":
-                  this.transitionTo('/dashboard/foreman');
+                  this.transitionTo('/dashboard/foreman/home');
                   break;
               }
         });
@@ -41,13 +41,13 @@ export default Ember.Route.extend({
         switch (role)
           {
            case "office":
-              this.transitionTo('/dashboard/office');
+              this.transitionTo('/dashboard/office/home');
               break;
            case "admin":
               this.transitionTo('/dashboard/admin');
               break;
            case "foreman":
-              this.transitionTo('/dashboard/foreman');
+              this.transitionTo('/dashboard/foreman/home');
               break;
           }
     });
