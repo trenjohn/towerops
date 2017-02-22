@@ -3,7 +3,7 @@ var time = Date.now();
 var cutoffTime = time - 86400000;
 
 export default Ember.Component.extend({
-  
+
   displayTime: Ember.computed(function() {
     var cutoffTimer = null;
     var selection = this.get('selection');
@@ -28,10 +28,11 @@ export default Ember.Component.extend({
     //console.log(selection);
     var cutoffTime = time - selection;
     var foremen = this.get('model.foremen');
+    //console.log(foremen);
     var filtered = foremen.filter( function(profile) {
         return profile.get('role') === 'foreman';
     });
-
+    //console.log(filtered);
     let filteredForemenResults = [];
 
     filtered.forEach( function(profile) {
