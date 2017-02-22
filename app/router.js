@@ -11,6 +11,7 @@ Router.map(function() {
   //this.authenticatedRoute('dashboard');
   this.route('sign-up');
   this.route('sign-out');
+  this.authenticatedRoute('update-password');
   this.authenticatedRoute('personnel');
   this.authenticatedRoute('jobsites');
 
@@ -31,6 +32,7 @@ Router.map(function() {
       this.route('create-jobsite');
     });
   });
+
 });
 
 export default Router;
