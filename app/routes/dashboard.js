@@ -12,6 +12,11 @@ export default Ember.Route.extend({
         this.store.query('profile', {orderBy: 'uid', equalTo: uid}).then((users) => {
             const user = users.get('firstObject');
             var role = user.get('role');
+            var firstLogin = user.get('firstLogin');
+            //console.log(firstLogin);
+            if (firstLogin === '0') {
+              this.transitionTo('update-password');
+            } else {
             //console.log(role);
             //console.log('beforeModel');
             switch (role)
@@ -26,6 +31,7 @@ export default Ember.Route.extend({
                   this.transitionTo('/dashboard/foreman/home');
                   break;
               }
+          }
         });
       }
     }
@@ -36,6 +42,12 @@ export default Ember.Route.extend({
     this.store.query('profile', {orderBy: 'uid', equalTo: uid}).then((users) => {
         const user = users.get('firstObject');
         var role = user.get('role');
+        var firstLogin = user.get('firstLogin');
+        //console.log(firstLogin);
+        if (firstLogin === '0') {
+          //console.log('Redirecting to update password');
+          this.transitionTo('update-password');
+        } else {
         //console.log(role);
         //console.log('beforeModel');
         switch (role)
@@ -50,6 +62,7 @@ export default Ember.Route.extend({
               this.transitionTo('/dashboard/foreman/home');
               break;
           }
+      }
     });
   },
   model() {

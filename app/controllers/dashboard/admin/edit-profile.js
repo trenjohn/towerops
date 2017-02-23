@@ -44,6 +44,7 @@ export default Ember.Controller.extend({
       const title = this.get('title');
       const phone = this.get('phone');
       const email = this.get('email');
+      const firstLogin = this.get('firstLogin');
 
       this.store.query('profile', {orderBy: 'uid', equalTo: uid}).then((profiles) => {
 
@@ -70,6 +71,9 @@ export default Ember.Controller.extend({
         }
         if(email) {
           profileToUpdate.set('email', email);
+        }
+        if(firstLogin) {
+          profileToUpdate.set('firstLogin', firstLogin);
         }
         profileToUpdate.save().then(console.log(profileToUpdate));
         }).catch((error)=>{

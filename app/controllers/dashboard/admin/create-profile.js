@@ -12,6 +12,7 @@ export default Ember.Controller.extend({
       var title = this.get('title');
       var phone = this.get('phone');
       var email = this.get('email');
+      var firstLogin = 0;
 
       const profile = this.store.createRecord(('profile'), {
           'uid': uid,
@@ -20,7 +21,8 @@ export default Ember.Controller.extend({
           'role': role,
           'title': title,
           'phone': phone,
-          'email': email
+          'email': email,
+          'firstLogin': firstLogin
         });
         profile.save();
       }

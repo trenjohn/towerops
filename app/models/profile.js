@@ -8,6 +8,7 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   phone: DS.attr('string'),
   email: DS.attr('string'),
+  firstLogin: DS.attr(),
   files: DS.hasMany('fileupload', { async: true, inverse: null}),
   manpowers: DS.hasMany('manpower', { async: true, inverse: null})
 });

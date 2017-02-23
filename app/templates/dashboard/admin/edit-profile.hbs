@@ -14,6 +14,7 @@
       <p><b>Title: </b>{{selectedProfile.title}}</p>
       <p><b>Phone: </b>{{selectedProfile.phone}}</p>
       <p><b>Email: </b>{{selectedProfile.email}}</p>
+      <p><b>First Login: </b>{{selectedProfile.firstLogin}}</p>
     </div>
   </div>
   <div class='col-md-1' align='center'></div>
@@ -36,6 +37,9 @@
     </div>
     <div class='sign-in'>
       {{input type='text' class='form-control' value=email placeholder="Email"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=firstLogin placeholder="Set to 0 to force password update on first login"}}
     </div>
       <button class='btn btn-primary' {{action "editProfile"}}>Edit Profile</button>
   </div>

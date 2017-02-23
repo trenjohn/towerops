@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
       //console.log(email);
       const auth = this.get('firebaseApp').auth();
       var user = auth.currentUser;
+      var uid = user.uid;
       const firstPassword = this.get('firstPassword');
       const secondPassword = this.get('secondPassword');
 
@@ -18,7 +19,16 @@ export default Ember.Controller.extend({
       }
 
       if (firstPassword === secondPassword) {
-        user.updatePassword(firstPassword).then(transitionToDashboard);
+        user.updatePassword(firstPassword).then(function() {
+          self.store.query('profile', {orderBy: 'uid', equalTo: uid}).then((users) => {
+              var profileToUpdate = users.get('firstObject');
+              var id = profileToUpdate.get('id');
+              self.store.findRecord('profile', id).then(function(profile) {
+                profile.set('firstLogin', '1');
+                profile.save().then(transitionToDashboard);
+              });
+            });
+        });
       } else {
         alert('Passwords do not match!');
       }
