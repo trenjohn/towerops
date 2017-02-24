@@ -1,3 +1,5 @@
+//Used on /dashboard/foreman/home template. Returns most recently submitted manpower request.
+
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -5,6 +7,8 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
 
   foremanManpowerRequest: Ember.computed(function() {
+
+//manpowerRequest Ember object used to store last manpower request.
 
     var manpowerRequest  = Ember.Object.create({
       week1Date: null,
@@ -18,6 +22,10 @@ export default Ember.Component.extend({
 
     var uid = this.get('firebaseApp').auth().currentUser.uid;
     var store = this.get('store');
+
+//Get current user's profile, return resolved promise of manpower requests associated
+//with that user, get last manpower request, set results to manpowerRequest object,
+//and return.
 
     store.query('profile', {orderBy: 'uid', equalTo: uid}).then((users) => {
         const user = users.get('firstObject');
@@ -39,7 +47,7 @@ export default Ember.Component.extend({
           var week2Request = filteredManpower.get('week2Request');
           var week3Request = filteredManpower.get('week3Request');
           var create = filteredManpower.get('created');
-          var created = new Date(create);
+          var created = new Date(create);  //Turn epoch milliseconds into date.
 
           manpowerRequest.set('week1Date', week1Date);
           manpowerRequest.set('week2Date', week2Date);

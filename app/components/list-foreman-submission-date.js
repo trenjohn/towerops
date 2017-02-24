@@ -1,3 +1,5 @@
+//Used on /dashboard/foreman/home template. Returns most recent file submission date.
+
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -6,12 +8,18 @@ export default Ember.Component.extend({
 
   foremanWeeklySubmissionDate: Ember.computed(function() {
 
+//submissionDate Ember object used to store date of last file submission.
+
+
     var submissionDate  = Ember.Object.create({
       created: null
     });
 
     var uid = this.get('firebaseApp').auth().currentUser.uid;
     var store = this.get('store');
+
+//Get current user's profile, return resolved promise of uploaded files, get date of last file
+//upload, set results to submissionDate object, and return.
 
     store.query('profile', {orderBy: 'uid', equalTo: uid}).then((users) => {
         const user = users.get('firstObject');

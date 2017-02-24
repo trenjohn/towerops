@@ -1,20 +1,22 @@
+//Used on /dashboard/office/manpower template. Returns last manpower request (filteredProfiles)
+//submitted by each foreman.
+
 import Ember from 'ember';
 
 export default Ember.Component.extend({
 
   filteredProfiles: Ember.computed(function() {
-    //var manpower = this.get('model.manpower');
-    // console.log(manpowers);
-    var foremen = this.get('model.foremen');
-    var filtered = foremen.filter( function(profile) {
+
+    var foremen = this.get('model.foremen');  //Returned from route model "foremen".
+    var filtered = foremen.filter( function(profile) {      //filter role of returned profiles for "foreman"
         return profile.get('role') === 'foreman';
     });
 
-    let filteredForemenResults = [];
+    let filteredForemenResults = [];    //array to hold all filteredForeman objects.
 
-    filtered.forEach( function(profile) {
+    filtered.forEach( function(profile) {      //forEach to iterate over resulting array
 
-      var filteredForeman = Ember.Object.create({
+      var filteredForeman = Ember.Object.create({    //filteredForeman object holds result for each iteration.
         firstName: null,
         lastName: null,
         week1Date: null,
@@ -28,19 +30,17 @@ export default Ember.Component.extend({
 
       var firstName = profile.get('firstName');
       var lastName = profile.get('lastName');
-      filteredForeman.set('firstName', firstName);
+      filteredForeman.set('firstName', firstName);    //set foreman name immediately after retrieving.
       filteredForeman.set('lastName', lastName);
 
 
       if(profile.get('manpowers.length') > 0) {
-        var promise = new Ember.RSVP.Promise(function(resolve) {
+        var promise = new Ember.RSVP.Promise(function(resolve) {    //promise to resolve manpower requests associated with a given profile.
           return resolve(profile.get('manpowers'));
         });
         promise.then(function(resolvedManpowers) {
-          //console.log(resolvedManpowers);
           var filteredManpowers = resolvedManpowers.sortBy('created').reverse();
           var filteredManpower = filteredManpowers.objectAt(0);
-          //console.log(filteredManpower);
 
           var week1Date = filteredManpower.get('week1Date');
           var week2Date = filteredManpower.get('week2Date');
@@ -56,14 +56,10 @@ export default Ember.Component.extend({
           filteredForeman.set('week2Request', week2Request);
           filteredForeman.set('week3Request', week3Request);
 
-          //console.log(filteredForeman);
-          //return filteredFiles;
         });
       }
-      filteredForemenResults.pushObject(filteredForeman);
+      filteredForemenResults.pushObject(filteredForeman);      //push resulting object from forEach iteration to result array.
     });
-    //console.log(filteredForemenResults[0]);
-    //console.log(filteredForemenResults);
-    return filteredForemenResults;
+    return filteredForemenResults;  
   })
 });
