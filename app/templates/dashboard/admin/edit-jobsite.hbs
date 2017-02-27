@@ -1,0 +1,55 @@
+<div style='margin-top: 25px;'>
+  <div class='col-md-1' align='center'></div>
+  <div class='col-md-4' align='center'>
+    <h4>Select Jobsite To Edit</h4>
+    {{#x-select class='form-control' value="target.value" action="didMakeSelection" on="change" as |xs|}}
+      {{#each model as |jobsite|}}
+        {{#xs.option value=jobsite.jobNumber}}{{jobsite.jobName}}{{/xs.option}}
+      {{/each}}
+    {{/x-select}}
+    <div align='left' style='margin-top: 50px;'>
+      <p><b>Job Name: </b>{{selectedJobsite.jobName}}</p>
+      <p><b>Job Number: </b>{{selectedJobsite.jobNumber}}</p>
+      <p><b>Foreman: </b>{{selectedJobsite.foreman}}</p>
+      <p><b>Project Manager: </b>{{selectedJobsite.projectManager}}</p>
+      <p><b>Street Address: </b>{{selectedJobsite.streetAddress}}</p>
+      <p><b>City: </b>{{selectedJobsite.city}}</p>
+      <p><b>State: </b>{{selectedJobsite.state}}</p>
+      <p><b>Zip Code: </b>{{selectedJobsite.zipCode}}</p>
+      <p><b>Job Open: </b>{{selectedJobsite.open}}</p>
+    </div>
+  </div>
+  <div class='col-md-1' align='center'></div>
+  <div class='col-md-6' align='center'>
+    <h4>Edit Jobsite</h4>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=jobName placeholder="Job Name"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=jobNumber placeholder="Job Number"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=foreman placeholder="Foreman"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=projectManager placeholder="Project Manager"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=streetAddress placeholder="Street Address"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=city placeholder="City"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=state placeholder="State"}}
+    </div>
+    <div class='sign-in'>
+      {{input type='text' class='form-control' value=zipCode placeholder="Zip Code"}}
+    </div>
+    <div class='sign-in'>
+      Jobsite Open: {{input type='checkbox' class='form-control' name="isOpen" checked=isOpen}}
+    </div>
+      <button class='btn btn-primary' {{action "editJobsite"}}>Edit Jobsite</button>
+  </div>
+  <div class='col-md-1' align='center'></div>
+</div>

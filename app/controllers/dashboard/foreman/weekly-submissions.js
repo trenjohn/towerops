@@ -5,13 +5,14 @@ export default Ember.Controller.extend({
   progress: 0,
   actions: {
     didSelectFiles(data) {
+      var model = this.get('model');
       console.log(data);
       const storageRef = this.get('firebaseApp').storage().ref();
       let file = data;
       var uid = this.get('firebaseApp').auth().currentUser.uid;
       var fileName = file[0].name;
       console.log(fileName);
-      //var self = this;
+      var self = this;
       //window.firebase.storage().ref();
 
       var uploadTask = storageRef.child(uid + '/' + file[0].name).put(file[0]);
@@ -55,6 +56,7 @@ export default Ember.Controller.extend({
               return profile.save();
             }).then(function() {
               alert('File Upload Complete!');
+              self.transitionToRoute('dashboard.foreman.home');
             });
          });
           // });

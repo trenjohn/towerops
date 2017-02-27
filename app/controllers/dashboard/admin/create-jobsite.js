@@ -12,9 +12,9 @@ export default Ember.Controller.extend({
       var state = this.get('state');
       var foreman = this.get('foreman');
       var projectManager = this.get('projectManager');
-      var open = this.get('open');
+      var open = this.get('isOpen');
       var created = Date.now();
-      console.log(created);
+      //console.log(open);
 
       var jobsite = this.store.createRecord(('jobsite'), {
           'jobName': jobName,

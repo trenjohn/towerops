@@ -27,12 +27,13 @@ Router.map(function() {
       this.route('manpower');
     });
     this.authenticatedRoute('admin', function() {
+      this.route('home');
       this.route('create-profile');
       this.route('edit-profile');
       this.route('create-jobsite');
+      this.route('edit-jobsite');
     });
   });
-
 });
 
 export default Router;

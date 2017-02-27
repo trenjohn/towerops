@@ -8,7 +8,8 @@ export default Ember.Route.extend({
 
       return Ember.RSVP.hash({
           user: this.get('store').query('profile', {orderBy: 'uid', equalTo: uid}),
-          job: this.store.findAll('jobsite')
+          //job: this.store.findAll('jobsite')
+          job: this.get('store').query('jobsite', {orderBy: 'open', equalTo: true})
           });
     }
 });

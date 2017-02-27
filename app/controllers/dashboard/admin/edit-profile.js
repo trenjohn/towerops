@@ -35,7 +35,7 @@ export default Ember.Controller.extend({
     editProfile: function() {
 
       var uid = this.get('uid');
-      console.log(uid);
+      //console.log(uid);
 
       //onst uid = this.get('firebaseApp').auth().currentUser.uid;
       const firstName = this.get('firstName');
@@ -50,8 +50,8 @@ export default Ember.Controller.extend({
 
         var profile = profiles.get('firstObject');
         var id = profile.get('id');
-        console.log(profile);
-        console.log(id);
+        //console.log(profile);
+        //console.log(id);
 
       this.store.findRecord('profile', id).then(function(profileToUpdate) {
         if(firstName) {
@@ -75,7 +75,9 @@ export default Ember.Controller.extend({
         if(firstLogin) {
           profileToUpdate.set('firstLogin', firstLogin);
         }
-        profileToUpdate.save().then(console.log(profileToUpdate));
+        profileToUpdate.save().then(function() {
+          alert('Profile Updated!');
+        });
         }).catch((error)=>{
           console.log(error);
         });

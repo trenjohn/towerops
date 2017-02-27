@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
       var title = this.get('title');
       var phone = this.get('phone');
       var email = this.get('email');
-      var firstLogin = 0;
+      var firstLogin = "0";
 
       const profile = this.store.createRecord(('profile'), {
           'uid': uid,
@@ -24,7 +24,9 @@ export default Ember.Controller.extend({
           'email': email,
           'firstLogin': firstLogin
         });
-        profile.save();
+        profile.save().then(function() {
+          alert('Profile Updated!');
+        });
       }
     }
 });

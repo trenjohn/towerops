@@ -25,7 +25,7 @@ export default Ember.Route.extend({
                   this.transitionTo('/dashboard/office/home');
                   break;
                case "admin":
-                  this.transitionTo('/dashboard/admin');
+                  this.transitionTo('/dashboard/admin/home');
                   break;
                case "foreman":
                   this.transitionTo('/dashboard/foreman/home');
@@ -56,7 +56,7 @@ export default Ember.Route.extend({
               this.transitionTo('/dashboard/office/home');
               break;
            case "admin":
-              this.transitionTo('/dashboard/admin');
+              this.transitionTo('/dashboard/admin/home');
               break;
            case "foreman":
               this.transitionTo('/dashboard/foreman/home');

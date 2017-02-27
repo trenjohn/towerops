@@ -29,6 +29,7 @@ export default Ember.Component.extend({
 
     store.query('profile', {orderBy: 'uid', equalTo: uid}).then((users) => {
         const user = users.get('firstObject');
+        console.log('Back Around!');
 
         var promise = new Ember.RSVP.Promise(function(resolve) {
           return resolve(user.get('manpowers'));
