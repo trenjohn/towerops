@@ -3,8 +3,14 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     signOut() {
-      this.get('session').close();
-      this.transitionToRoute('sign-out');
+      let controller = this;
+      this.get('session').close().then(() => {
+        controller.transitionToRoute('sign-out');
+      }, (error) => {
+        console.log('Error!!!!!'+error);
+      }).catch(function(err) {
+        console.log(err);
+      });
     }
   }
 });

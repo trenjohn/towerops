@@ -1,16 +1,16 @@
 <div class='container-fluid header nav-container'>
-  <div class='col-md-4 logo'>
-    {{#if session.isAuthenticated}}
-      {{#link-to 'dashboard'}}
+  <div class='col-md-4 logo row-fluid'>
+      {{#if session.isAuthenticated}}
+        {{#link-to 'dashboard'}}
+            <img src="/assets/images/logo-main.png" alt="Tower Electric">
+        {{/link-to}}
+      {{else}}
+        {{#link-to 'index'}}
           <img src="/assets/images/logo-main.png" alt="Tower Electric">
-      {{/link-to}}
-    {{else}}
-      {{#link-to 'index'}}
-        <img src="/assets/images/logo-main.png" alt="Tower Electric">
-      {{/link-to}}
-    {{/if}}
+        {{/link-to}}
+      {{/if}}
   </div>
-  <div class='col-md-6'>
+  <div class='col-md-6 row-fluid'>
       {{#if session.isAuthenticated}}
           {{#link-to 'dashboard' class='navbar-text nav-link'}}
               Home
@@ -23,7 +23,7 @@
           {{/link-to}}
       {{/if}}
   </div>
-  <div class='col-md-2 sign-out'>
+  <div class='col-md-2 sign-out row-fluid'>
       {{#if session.isAuthenticated}}
           <button class='btn btn-primary navbar-btn' {{action 'signOut'}}>
                Sign Out
@@ -31,11 +31,6 @@
       {{/if}}
   </div>
 </div>
-<!-- <div>
-  {{#unless session.isAuthenticated}}
-    <div class='container-fluid news-bar news-bar-non'></div>
-  {{/unless}}
-</div> -->
 <div class='container-fluid sub-header nopadding'>
     {{outlet}}
 </div>

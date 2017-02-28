@@ -13,9 +13,26 @@
      background-image: url('/assets/images/bar.png');
      z-index: 1;
      min-height: 39px;
+     max-height: 39px;
      color: #e6e6e6;
      text-align: center;
      //width: 960px;
+   }
+
+  //  .header-parent {
+  //    position: relative;
+  //  }
+   //
+  //  .header-logo-child {
+  //    position: absolute;
+  //    top: 50%;
+  //    transform: translateY(45%);
+  //  }
+
+   .header-sign-out-child {
+     position: absolute;
+     top: 50%;
+     transform: translateY(85%);
    }
 
    .sub-news-bar {
@@ -103,7 +120,7 @@
 
    .sub-header {
      z-index: 1;
-     min-height: 700px;
+     min-height: 600px;
      color: black;
      background-color: rgb(242, 242, 242);
     //  background: -moz-linear-gradient(top, #dedede 100%,  #fefefe 0%);
@@ -116,7 +133,7 @@
      -moz-box-shadow: 0px 0px 9px #444444;
      -webkit-box-shadow: 0px 0px 9px #444444;
      box-shadow: 0px 0px 9px #444444;
-    width: 960px;
+    max-width: 960px;
     padding: 0px 0px 0px 0px;
    }
 

@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   progress: 0,
   actions: {
     didSelectFiles(data) {
-      var model = this.get('model');
+      //var model = this.get('model');
       console.log(data);
       const storageRef = this.get('firebaseApp').storage().ref();
       let file = data;

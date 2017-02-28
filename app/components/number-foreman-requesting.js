@@ -42,6 +42,8 @@ export default Ember.Component.extend({
             results.set('currentRequests', count);   //could not figure out how to wait until final count, to set...so right now it sets during each iteration. result correct :/
           }
         });
+      } else {
+        results.set('currentRequests', count); //Set to 0 if no manpower requests.
       }
     });
 

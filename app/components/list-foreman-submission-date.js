@@ -10,7 +10,6 @@ export default Ember.Component.extend({
 
 //submissionDate Ember object used to store date of last file submission.
 
-
     var submissionDate  = Ember.Object.create({
       created: null
     });
@@ -29,16 +28,18 @@ export default Ember.Component.extend({
         });
 
         promise.then(function(resolvedFiles) {
-          //console.log(resolvedManpowers);
-          var returnedFiles = resolvedFiles.sortBy('created').reverse();
-          var file = returnedFiles.objectAt(0);
-          //console.log(filteredManpower);
+          if (resolvedFiles.get('length') > 0) {
 
-          var created = file.get('created');
-          var lastWeeklySubmissionDate = new Date(created);
+            var returnedFiles = resolvedFiles.sortBy('created').reverse();
+            var file = returnedFiles.objectAt(0);
 
-          submissionDate.set('created', lastWeeklySubmissionDate);
+            var created = file.get('created');
+            var lastWeeklySubmissionDate = new Date(created);
 
+            submissionDate.set('created', lastWeeklySubmissionDate);
+          } else {
+            submissionDate.set('created', 'No Files Uploaded!');
+          }
           });
         });
       return submissionDate;
