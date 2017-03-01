@@ -42,24 +42,36 @@ export default Ember.Component.extend({
           var filteredManpowers = resolvedManpowers.sortBy('created').reverse();
           var filteredManpower = filteredManpowers.objectAt(0);
 
-          var week1Date = filteredManpower.get('week1Date');
-          var week2Date = filteredManpower.get('week2Date');
-          var week3Date = filteredManpower.get('week3Date');
-          var week1Request = filteredManpower.get('week1Request');
-          var week2Request = filteredManpower.get('week2Request');
-          var week3Request = filteredManpower.get('week3Request');
 
-          filteredForeman.set('week1Date', week1Date);
-          filteredForeman.set('week2Date', week2Date);
-          filteredForeman.set('week3Date', week3Date);
-          filteredForeman.set('week1Request', week1Request);
-          filteredForeman.set('week2Request', week2Request);
-          filteredForeman.set('week3Request', week3Request);
+          var created = filteredManpower.get('created');
+          var show = new Date();   //get Date object
+          show.setDate(show.getDate() - (7-show.getDay())%7+1);   //Sets date to most recent prior Sunday
+          show.setHours(8);    //Sets hours to 8 a.m.
+          show.setMinutes(0);   //Sets minutes to zero
+          show.setSeconds(0);   //Sets seconds to zero
+          var millis = show.getTime();     //Converts prior Sunday at 8:00:00 to milliseconds
 
+          if (created > millis) {
+
+            var week1Date = filteredManpower.get('week1Date');
+            var week2Date = filteredManpower.get('week2Date');
+            var week3Date = filteredManpower.get('week3Date');
+            var week1Request = filteredManpower.get('week1Request');
+            var week2Request = filteredManpower.get('week2Request');
+            var week3Request = filteredManpower.get('week3Request');
+
+            filteredForeman.set('week1Date', week1Date);
+            filteredForeman.set('week2Date', week2Date);
+            filteredForeman.set('week3Date', week3Date);
+            filteredForeman.set('week1Request', week1Request);
+            filteredForeman.set('week2Request', week2Request);
+            filteredForeman.set('week3Request', week3Request);
+
+          }
         });
       }
       filteredForemenResults.pushObject(filteredForeman);      //push resulting object from forEach iteration to result array.
     });
-    return filteredForemenResults;  
+    return filteredForemenResults;
   })
 });
