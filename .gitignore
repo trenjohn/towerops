@@ -21,3 +21,10 @@ testem.log
 
 #tests
 /tests
+
+#firebase
+firebase.json
+firebase.rc
+
+#dist
+/dist
