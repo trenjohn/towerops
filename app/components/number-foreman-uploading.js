@@ -10,7 +10,8 @@ export default Ember.Component.extend({
 
   foremenUploading: Ember.computed(function() {
     var date = new Date();
-    date.setDate(0 - (7-date.getDay())%7+1);    //Sets date to most recent prior Sunday
+    console.log(date);
+    date.setDate(date.getDate() - date.getDay());    //Sets date to most recent prior Sunday
     date.setHours(12);    //Sets hours to noon
     date.setMinutes(0);   //Sets minutes to zero
     date.setSeconds(0);   //Sets seconds to zero

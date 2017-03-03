@@ -45,7 +45,7 @@ export default Ember.Component.extend({
 
           var created = filteredManpower.get('created');
           var show = new Date();   //get Date object
-          show.setDate(show.getDate() - (7-show.getDay())%7+1);   //Sets date to most recent prior Sunday
+          show.setDate(show.getDate() - show.getDay());   //Sets date to most recent prior Sunday
           show.setHours(8);    //Sets hours to 8 a.m.
           show.setMinutes(0);   //Sets minutes to zero
           show.setSeconds(0);   //Sets seconds to zero
