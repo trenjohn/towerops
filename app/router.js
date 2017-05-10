@@ -9,7 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('sign-in');
   //this.authenticatedRoute('dashboard');
-  //this.route('sign-up');
+  this.route('sign-up');
   this.route('sign-out');
   this.authenticatedRoute('update-password');
   this.authenticatedRoute('personnel');
@@ -20,6 +20,7 @@ Router.map(function() {
       this.route('home');
       this.route('weekly-submissions');
       this.route('manpower');
+      this.route('useful-links');
     });
     this.authenticatedRoute('office', function() {
       this.route('home');
@@ -35,6 +36,7 @@ Router.map(function() {
     });
   });
   this.route('catchAll', { path: '*:' });
+
 });
 
 export default Router;
